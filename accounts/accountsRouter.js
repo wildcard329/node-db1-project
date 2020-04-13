@@ -19,7 +19,7 @@ router.get("/:id", (req, res) => {
         .where({ id: req.params.id })
         .first()
         .then(account => {
-            res.status(200).json({ data: acount })
+            res.status(200).json({ data: account })
         })
         .catch(error => {
             console.error(error.message);
@@ -66,7 +66,7 @@ router.patch('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    db('posts')
+    db('accounts')
         .where({ id: req.params.id })
         .del()
         .then(count => {
@@ -80,3 +80,5 @@ router.delete('/:id', (req, res) => {
             res.status(500).json({ message: error.message });
         });
 });
+
+module.exports = router;
